@@ -38,7 +38,7 @@ The Two Admins have the same password `!Admin321`
 and the usernames/emails are `sibongiseni.msomi@outlook.com` and `demo@demo.test`
 
 ## Running the Application
-Once everything is all setup, you can run the from `localhost` or `http://kontak-simple.test`
+Once everything is all setup, you can run the application from `localhost` or `http://kontak-simple.test`
 
 ## Emails
 The system uses database queues to send out emails, so it's important to run the below command, and keep it running to ensure the emails are sent through.
