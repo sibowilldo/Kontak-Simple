@@ -2,28 +2,32 @@
 Built with ❤️ and Laravel Sail
 
 ## Setup
-Within the root directory of this project run 
+
+Run Composer to install the composer packages 
+
+```bash
+ composer install
+ ```
+Setup your local .env by running the below command or manually copy .env.example to a new file called .env
+```bash
+ cp .env.example .env
+ ```
+Within the root directory of this project run, to bring the containers up
 ```bash
 ./vendor/bin/sail up
 ```
-Before running the above command, be sure to free-up default ports from these applications: 
-- Apache/Nginx `:80` 
+Generate your unique `APP_KEY`
+```bash
+./vendor/bin/sail artisan key:generate
+```
+
+Before running the above command, be sure to free-up default ports from these applications:
+- Apache/Nginx `:80`
 - MySQL/MariaDB `:3306`
 - MailHog `:1025`
 - meilisearch `:7700`
 - redis `:6379`
 
-### Data
-Kontak Simple includes some sample data to get you started. Here's how you can get it up and running.
-
-Setup your local .env by running the below command or manually copy .env.example to a new file called .env
-```bash
- cp .env.example .env
- ```
-Generate your unique `APP_KEY`
-```bash
-./vendor/bin/sail artisan key:generate
-```
 Run you migration, to create the database tables
 ```bash
 ./vendor/bin/sail artisan migrate
