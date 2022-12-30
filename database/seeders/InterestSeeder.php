@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Interest;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,6 @@ class InterestSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Interest::factory()->count(5)->create();
     }
 }

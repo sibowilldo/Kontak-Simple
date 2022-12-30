@@ -10,14 +10,16 @@ use Illuminate\Database\Seeder;
 class UserSeeder extends Seeder
 {
     use WithoutModelEvents;
+
     /**
      * Run the database seeds.
      *
      * @return void
+     * @throws \Exception
      */
     public function run()
     {
-        $interests =  Interest::factory()->count(5)->create();
-        User::factory(10)->hasAttached($interests)->create();
+        $interests =  Interest::get();
+        User::factory(10)->hasAttached($interests->random(random_int(1,5)))->create();
     }
 }
