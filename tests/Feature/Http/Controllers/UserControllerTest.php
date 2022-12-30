@@ -1,7 +1,7 @@
 <?php
-namespace Tests\Feature\Http\Controllers\Admin;
+namespace Tests\Feature\Http\Controllers;
+
 use App\Models\Interest;
-use HttpResponse;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\User;
 use Tests\TestCase;
