@@ -17,7 +17,8 @@ class UserController extends Controller
 
     public function __construct()
     {
-
+        $this->middleware('admin')->only(['create', 'store']);
+        $this->authorizeResource(User::class, 'user');
     }
 
     /**
@@ -42,7 +43,6 @@ class UserController extends Controller
      */
     public function create(): View
     {
-        Gate::allowIf(auth()->user()->is_admin);
         $languages = Language::select('name', 'id')->get();
         $interests = Interest::select('name', 'id')->get();
         return view('users.create', compact('languages', 'interests'));
@@ -56,7 +56,6 @@ class UserController extends Controller
      */
     public function store(CreateUserFormRequest $request): RedirectResponse
     {
-        Gate::allowIf(auth()->user()->is_admin);
         $interests = $request->only('interests');
 
         $user = User::create(array_merge(['password' => bcrypt(random_bytes(12))], $request->validated()));
@@ -87,7 +86,6 @@ class UserController extends Controller
      */
     public function edit(User $user): View
     {
-        Gate::allowIf(auth()->user()->is_admin || auth()->id() == $user->id);
         $languages = Language::select('name', 'id')->get();
         $interests = Interest::select('name', 'id')->get();
         return view('users.edit', compact('user', 'languages', 'interests'));
@@ -102,7 +100,6 @@ class UserController extends Controller
      */
     public function update(UpdateUserFormRequest $request, User $user): RedirectResponse
     {
-        Gate::allowIf(auth()->user()->is_admin || auth()->id() == $user->id);
         $interests = $request->only('interests');
 
         $user->update(array_merge($request->validated()));
@@ -122,7 +119,6 @@ class UserController extends Controller
      */
     public function destroy(User $user): RedirectResponse
     {
-        Gate::allowIf(auth()->user()->is_admin || auth()->id() == $user->id);
         $user->delete();
         session()->flash('status', 'Kontak Deleted Successfully!');
         return redirect()->route('dashboard');
