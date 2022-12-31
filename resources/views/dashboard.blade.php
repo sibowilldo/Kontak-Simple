@@ -15,12 +15,7 @@
                         <x-button-link :link="route('users.create')">New Kontak</x-button-link>
                     @endif
                 </header>
-                <section class="overflow-x-auto relative rounded-lg shadow-sm">
-                    <x-kontak-table :users="$users"/>
-                </section>
-                <footer>
-                    {{ $users->links() }}
-                </footer>
+                @livewire('kontak-table')
             </article>
         </div>
     </div>

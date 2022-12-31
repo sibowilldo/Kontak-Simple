@@ -1,5 +1,5 @@
 
-<table class="w-full rounded-lg bg-white">
+<table class="w-full bg-white">
     <thead class="border-b-2 border-gray-300 mb-4">
     <tr>
         <th class="py-4 px-8 text-gray-400 text-xs font-semibold uppercase text-left lg:bg-white sm:bg-gray-50">ID</th>

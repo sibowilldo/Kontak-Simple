@@ -12,12 +12,7 @@
                 <header>
                     <h2 class="text-xl font-black">- Kontaks</h2>
                 </header>
-                <section class="overflow-x-auto relative rounded-lg shadow-sm">
-                    <x-kontak-table :users="$users"/>
-                </section>
-                <footer>
-                    {{ $users->links() }}
-                </footer>
+                @livewire('kontak-table')
             </article>
         </div>
     </div>
